@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJ", "IJ\IJ.csproj", "{357C4670-0B7E-4038-8530-1E475B550A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJ.Blazor", "IJ.Blazor\IJ.Blazor.csproj", "{FC0B8506-DAE3-4B70-A948-C2D39FAACAB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{357C4670-0B7E-4038-8530-1E475B550A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357C4670-0B7E-4038-8530-1E475B550A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357C4670-0B7E-4038-8530-1E475B550A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357C4670-0B7E-4038-8530-1E475B550A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC0B8506-DAE3-4B70-A948-C2D39FAACAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC0B8506-DAE3-4B70-A948-C2D39FAACAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC0B8506-DAE3-4B70-A948-C2D39FAACAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC0B8506-DAE3-4B70-A948-C2D39FAACAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
