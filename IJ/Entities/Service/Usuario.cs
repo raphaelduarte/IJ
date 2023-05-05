@@ -18,10 +18,6 @@ public class Usuario : IUsuario
     public Guid IdNomeCompleto { get; set; }
     public string Nome { get; set; }
     public string Sobrenome { get; set; }
-    public void nomeCompleto()
-    {
-        throw new NotImplementedException();
-    }
 
     public Guid IdCpf { get; set; }
     public long NumeroCpf { get; set; }
