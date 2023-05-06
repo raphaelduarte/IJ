@@ -1,5 +1,6 @@
 ﻿using IJ.Context;
 using IJ.Entities.Service;
+using IJ.Entities.Service.Investigacao;
 
 class InvestigationJob
 {
@@ -21,6 +22,11 @@ class InvestigationJob
                 Cidade = "Alfredo Wagner",
                 Estado = "Santa Catarina",
                 Pais = "Brasil"
+            };
+
+            var AgenteCampana = new AgenteCampana
+            {
+                
             };
             context.Usuarios.Add(Usuario);
             context.SaveChanges();

@@ -6,14 +6,18 @@ namespace IJ.Entities.Service.Investigacao;
 public class AgenteCampana : IAgenteCampana
 {
     public Guid IdAgenteCamapana { get; set; }
+    
     public Guid IdNomeCompleto { get; set; }
     public string Nome { get; set; }
     public string Sobrenome { get; set; }
+    
     public Guid IdCpf { get; set; }
     public long NumeroCpf { get; set; }
+    
     public Guid IdTelefone { get; set; }
     public int Ddd { get; set; }
     public int NumeroTelefone { get; set; }
+    
     public Guid IdEndereco { get; set; }
     public string Rua { get; set; }
     public int Numero { get; set; }
@@ -21,8 +25,10 @@ public class AgenteCampana : IAgenteCampana
     public string Cidade { get; set; }
     public string Estado { get; set; }
     public string Pais { get; set; }
+    
     public Guid IdImage { get; set; }
     public string Image { get; set; }
+    
     public Guid IdUsuario { get; }
     public INomeCompleto NomeCompleto { get; set; }
     public ICpf Cpf { get; set; }
