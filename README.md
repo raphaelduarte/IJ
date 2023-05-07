@@ -3,7 +3,7 @@
 Esse aplicativo web conecta agentes de campana a agentes de inteligência.
 
 ## Arquitetura
-IJ.Domain (entidade de domínio da App)
+### IJ.Domain (entidade de domínio da App)
 IJ.Aplication (interfaces, serviços e regras de negócio)
 IJ.Infra.Data (responsável pelo acesso a dados)
 IJ.Infra.IoC (centralizar a injeção de dependências)
