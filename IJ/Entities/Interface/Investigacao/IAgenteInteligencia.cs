@@ -1,6 +1,6 @@
 ﻿namespace IJ.Entities.Interface.Investigacao;
 
-public interface IAgenteInteligencia
+public interface IAgenteInteligencia : IUsuario
 {
-    public Guid IdAgenteInteligencia { get; set; }
+    Guid IdAgenteInteligencia { get; set; }
 }

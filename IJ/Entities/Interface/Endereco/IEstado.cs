@@ -2,6 +2,6 @@
 
 public interface IEstado
 {
-    public int IdEstado { get; set; }
-    public string Estado { get; set; }
+    int IdEstado { get; set; }
+    string Estado { get; set; }
 }

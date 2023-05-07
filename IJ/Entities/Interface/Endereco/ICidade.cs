@@ -2,6 +2,6 @@
 
 public interface ICidade
 {
-    public int IdCidade { get; set; }
-    public string Cidade {get; set; }
+    int IdCidade { get; set; }
+    string Cidade {get; set; }
 }

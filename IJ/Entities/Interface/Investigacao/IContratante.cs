@@ -1,6 +1,6 @@
 ﻿namespace IJ.Entities.Interface.Investigacao;
 
-public interface IContratante
+public interface IContratante : INomeCompleto, ICpf, ITelefone, IEndereco
 {
-    public Guid IdContratante { get; set; }
+    Guid IdContratante { get; set; }
 }

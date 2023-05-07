@@ -1,10 +1,6 @@
 ﻿namespace IJ.Entities.Interface.Investigacao;
 
-public interface IInvestigado : ICpf, IEndereco, ITelefone, INomeCompleto
+public interface IInvestigado : INomeCompleto, ICpf, ITelefone, IEndereco
 {
-    public Guid IdInvestigado { get; set; }
-    public INomeCompleto NomeCompleto { get; set; }
-    public ICpf Cpf { get; set; }
-    public ITelefone Telefone { get; set; }
-    public IEndereco Endereco { get; set; }
+    Guid IdInvestigado { get; set; }
 }

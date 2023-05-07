@@ -2,6 +2,6 @@
 
 public interface IBairro
 {
-    public Guid IdBairro { get; set; }
-    public string Bairro { get; set; }
+    Guid IdBairro { get; set; }
+    string Bairro { get; set; }
 }

@@ -18,12 +18,17 @@ public class Usuario : IUsuario
     public Guid IdNomeCompleto { get; set; }
     public string Nome { get; set; }
     public string Sobrenome { get; set; }
+    
 
     public Guid IdCpf { get; set; }
     public long NumeroCpf { get; set; }
+    
+    
     public Guid IdTelefone { get; set; }
     public int Ddd { get; set; }
     public int NumeroTelefone { get; set; }
+    
+    
     public Guid IdEndereco { get; set; }
     public string Rua { get; set; }
     public int Numero { get; set; }
@@ -31,6 +36,8 @@ public class Usuario : IUsuario
     public string Cidade { get; set; }
     public string Estado { get; set; }
     public string Pais { get; set; }
+    
+    
     public Guid IdImage { get; set; }
     public string Image { get; set; }
 }

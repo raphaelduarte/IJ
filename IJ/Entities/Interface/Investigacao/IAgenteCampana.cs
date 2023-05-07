@@ -2,5 +2,5 @@
 
 public interface IAgenteCampana : IUsuario
 {
-    public Guid IdAgenteCamapana { get; set; }
+    Guid IdAgenteCamapana { get; set; }
 }

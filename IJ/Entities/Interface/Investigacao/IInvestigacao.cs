@@ -1,11 +1,11 @@
-﻿namespace IJ.Entities.Interface.Investigacao;
+namespace IJ.Entities.Interface.Investigacao;
 
-public interface IInvestigacao : IAgenteInteligencia, IAgenteCampana, IContratante,IInvestigado
+public interface IInvestigacao : IAgenteInteligencia, IAgenteCampana, IContratante, IInvestigado
 {
-    public Guid IdInvestigacao { get; set; }
-    public string NomeInvestigacao { get; set; }
-    public IAgenteInteligencia AgenteInteligencia { get; set; }
-    public IAgenteCampana AgenteCampana { get; set; }
-    public IContratante Contratante { get; set; }
-    public IInvestigado Investigado { get; set; }   
+    Guid IdInvestigacao { get; set; }
+    string Descricao { get; set; }
+    IList<IAgenteInteligencia> AgentesInteligencia { get; set; }
+    IList<IAgenteCampana> AgentesCampana { get; set; }
+    IList<IContratante> Contratantes { get; set; }
+    IList<IInvestigado> Investigados { get; set; }
 }
