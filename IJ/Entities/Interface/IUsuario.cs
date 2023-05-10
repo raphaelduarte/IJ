@@ -8,4 +8,8 @@ public interface IUsuario : INomeCompleto, ICpf, ITelefone, IEndereco, IImage
     public IList<ITelefone> Telefones { get; set; }
     public IList<IEndereco> Enderecos { get; set; }
     public IList<IImage> Imagens { get; set; }
+
+
+
+    
 }
