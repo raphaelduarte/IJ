@@ -6,4 +6,22 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Interfaces\Usuarios\" />
+      <Folder Include="Validation\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
+      <Compile Remove="Entities\Id.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
+    </ItemGroup>
+
 </Project>
