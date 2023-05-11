@@ -4,9 +4,10 @@ using IJ.Domain.Validation;
 
 namespace IJ.Domain.Entities;
 
-public sealed class Usuario
+public sealed class Usuario : IEntityRepository
 {
-    private IIdRepository _idRepository;
+    public Guid Id { get; set; }
+    
     private IUsuarioRepository _usuarioRepository;
     private INomeCompletoRepository _nomeCompletoRepository;
     private ICpfRepository _cpfRepository;
@@ -16,7 +17,6 @@ public sealed class Usuario
     private ISenhaRepository _senhaRepository;
 
     public Usuario(
-        IIdRepository idRepository,
         IUsuarioRepository usuarioRepository,
         INomeCompletoRepository nomeCompletoRepository,
         ICpfRepository cpfRepository,
@@ -26,18 +26,9 @@ public sealed class Usuario
         ISenhaRepository senhaRepository
     )
     {
-        void ValidateDomainId(IIdRepository idRepository)
-        {
-            var idRepositoryString = idRepository.ToString();
-            DomainExeptionValidation.When(string.IsNullOrEmpty(idRepositoryString), "Id Inválido");
-        }
-        _idRepository = idRepository;
-        
-        
-        
         void ValidateDomainCpf(ICpfRepository cpfRepository)
         {
-            var cpfRepositoryString = idRepository.ToString();
+            var cpfRepositoryString = cpfRepository.ToString();
             DomainExeptionValidation.When(string.IsNullOrEmpty(cpfRepositoryString), "Cpf Inválido");
         }
         _cpfRepository = cpfRepository;
@@ -60,7 +51,7 @@ public sealed class Usuario
             }
             else
             {
-                string erroTelefone = "Telefone Inválido";
+                string erroTelefone = "Telefone vazio, coloque um número de telefone";
             }
         }
         

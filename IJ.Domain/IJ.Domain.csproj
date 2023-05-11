@@ -11,6 +11,7 @@
       <Compile Remove="Entities\Id.cs" />
       <Compile Remove="Interfaces\Usuarios\**" />
       <Compile Remove="Interfaces\Endereco\**" />
+      <Compile Remove="Entities\Entity.cs" />
     </ItemGroup>
 
     <ItemGroup>
