@@ -7,21 +7,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\Usuarios\" />
-      <Folder Include="Validation\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
       <Compile Remove="Entities\Id.cs" />
+      <Compile Remove="Interfaces\Usuarios\**" />
+      <Compile Remove="Interfaces\Endereco\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
+      <EmbeddedResource Remove="Interfaces\Usuarios\**" />
+      <EmbeddedResource Remove="Interfaces\Endereco\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
+      <None Remove="Interfaces\Usuarios\**" />
+      <None Remove="Interfaces\Endereco\**" />
     </ItemGroup>
 
 </Project>

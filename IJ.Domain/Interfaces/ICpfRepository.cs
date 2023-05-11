@@ -2,5 +2,6 @@
 
 public interface ICpfRepository
 {
-    
+    public Guid IdCpf { get; set; }
+    public long NumeroCpf { get; set; }
 }
