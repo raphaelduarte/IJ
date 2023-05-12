@@ -12,18 +12,21 @@
       <Compile Remove="Interfaces\Usuarios\**" />
       <Compile Remove="Interfaces\Endereco\**" />
       <Compile Remove="Entities\Entity.cs" />
+      <Compile Remove="Interfaces\Investigacao\Deslocamento\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
       <EmbeddedResource Remove="Interfaces\Usuarios\**" />
       <EmbeddedResource Remove="Interfaces\Endereco\**" />
+      <EmbeddedResource Remove="Interfaces\Investigacao\Deslocamento\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Interfaces\Usuarios\InformacoesDoUsuario\**" />
       <None Remove="Interfaces\Usuarios\**" />
       <None Remove="Interfaces\Endereco\**" />
+      <None Remove="Interfaces\Investigacao\Deslocamento\**" />
     </ItemGroup>
 
     <ItemGroup>

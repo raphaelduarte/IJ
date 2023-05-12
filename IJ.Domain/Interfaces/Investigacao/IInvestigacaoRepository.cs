@@ -1,4 +1,6 @@
-﻿using IJ.Domain.Interfaces.Usuarios;
+﻿using IJ.Domain.Interfaces.Investigacao.Enums;
+using IJ.Domain.Interfaces.Investigacao.Services;
+using IJ.Domain.Interfaces.Usuarios;
 
 namespace IJ.Domain.Interfaces.Investigacao;
 
@@ -11,5 +13,9 @@ public interface IInvestigacaoRepository : IEntityRepository
     IList<IContratanteRepository> Contratantes { get; set; }
     IList<IInvestigadoRepository> Investigados { get; set; }
     IDetalhesInvestigacao DetalhesInvestigacao { get; set; }
+    
+    
+    void CustoDeslocamento(ISelecionaVeiculo tipoVeiculo);
+    void CustoHospedagem(ISelecionaHospedaria hospedaria);
 
 }
