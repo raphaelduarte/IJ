@@ -2,7 +2,11 @@
 
 public interface IUsuarioRepository
 {
-    public Guid IdUsuarioRepository { get; set; }
-    void CriarUsuario();
-    void AtualizarUsuario();
+    Guid IdUsuarioRepository { get; set; }
+    INomeCompletoRepository NomeCompletoRepository { get; set; }
+    ICpfRepository CpfRepository { get; set; }
+    ITelefoneRepository TelefoneRepository { get; set; }
+    IEnderecoRepository EnderecoRepository { get; set; }
+    IEmailRepository EmailRepository { get; set; }
+    ISenhaRepository SenhaRepository { get; set; }
 }
