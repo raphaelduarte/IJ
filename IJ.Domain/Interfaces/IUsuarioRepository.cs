@@ -2,11 +2,11 @@
 
 public interface IUsuarioRepository
 {
-    Guid IdUsuarioRepository { get; set; }
+    IEntityRepository IdUsuarioRepository { get; set; }
     INomeCompletoRepository NomeCompletoRepository { get; set; }
     ICpfRepository CpfRepository { get; set; }
-    ITelefoneRepository TelefoneRepository { get; set; }
-    IEnderecoRepository EnderecoRepository { get; set; }
+    IList<ITelefoneRepository> TelefoneRepositories { get; set; }
+    IList<IEnderecoRepository> EnderecoRepositories { get; set; }
     IEmailRepository EmailRepository { get; set; }
     ISenhaRepository SenhaRepository { get; set; }
 }

@@ -14,8 +14,6 @@ public class DomainExeptionValidation : Exception
             throw new DomainExeptionValidation(error);
         }
     }
-
-    
 }
 
 public class error
