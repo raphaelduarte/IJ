@@ -1,4 +1,6 @@
-﻿namespace IJ.Domain.Interfaces.Usuarios;
+﻿using Flunt.Notifications;
+
+namespace IJ.Domain.Interfaces.Usuarios;
 
 public interface IEntityRepository
 {

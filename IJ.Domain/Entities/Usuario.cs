@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices.ComTypes;
+using Flunt.Notifications;
 using IJ.Domain.Interfaces.Usuarios;
 using IJ.Domain.Validation;
 
@@ -12,5 +13,10 @@ public sealed class Usuario : IEntityRepository
     public Usuario(IUsuarioRepository usuarioRepository)
     {
         UsuarioRepository = usuarioRepository;
+    }
+
+    public void AddNotifications(IEnumerable<Notification> notifications)
+    {
+        throw new NotImplementedException();
     }
 }
