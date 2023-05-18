@@ -74,9 +74,4 @@ public class CpfValidation : AbstractValidator<ICpfRepository>
             return verifierDigits;
         }
     }
-
-    public void Validate()
-    {
-        throw new NotImplementedException();
-    }
 }
