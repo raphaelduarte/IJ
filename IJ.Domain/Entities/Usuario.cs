@@ -14,9 +14,4 @@ public sealed class Usuario : IEntityRepository
     {
         UsuarioRepository = usuarioRepository;
     }
-
-    public void AddNotifications(IEnumerable<Notification> notifications)
-    {
-        throw new NotImplementedException();
-    }
 }

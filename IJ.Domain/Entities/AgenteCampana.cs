@@ -24,6 +24,6 @@ public sealed class AgenteCampana
 
         string NomeInvestigacao = _investigacaoRepository.NomeInvestigacao;
         IList<string> Investigacoes = new List<string>();
-        
+
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace IJ.Domain.Interfaces.Usuarios;
+﻿using IJ.Domain.Entities.ValueObjects;
+
+namespace IJ.Domain.Interfaces.Usuarios;
 
 public interface IEmailRepository
 {

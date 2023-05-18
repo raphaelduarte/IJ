@@ -4,5 +4,5 @@ public interface ITelefoneRepository
 {
     public Guid IdTelefone { get; set; }
     public int Ddd { get; set; }
-    public int NumeroTelefone { get; set; }
+    public long NumeroTelefone { get; set; }
 }

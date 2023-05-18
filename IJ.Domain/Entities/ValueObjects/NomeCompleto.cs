@@ -10,8 +10,9 @@ public class NomeCompleto : INomeCompletoRepository
     public string Nome { get; set; }
     public string Sobrenome { get; set; }
 
-    public NomeCompleto(Guid idNomeCompleto, Notifiable<Notification> nome, Notifiable<Notification> sobrenome, NomeCompletoValidation nomeCompletoValidation)
+    public NomeCompleto(string nome, string sobrenome)
     {
-        nomeCompletoValidation.AddNotifications(nome,sobrenome);
+        Nome = nome;
+        Sobrenome = sobrenome;
     }
 }
