@@ -7,71 +7,44 @@ using IJ.Domain.Interfaces.Usuarios;
 
 namespace IJ.Domain.Validation.ValueObjects;
 
-public class CpfValidation : AbstractValidator<ICpfRepository>
+public class CpfValidation
 {
-    public CpfValidation(long cpf)
+    ICpfRepository _beValidCpf;
+
+    public CpfValidation(ICpfRepository beValidCpf)
     {
-        RuleFor(cpf => cpf.NumeroCpf.ToString())
-            .NotEmpty().WithMessage("CPF is required.")
-            .Length(11).WithMessage("CPF must have 11 digits.")
-            .Must(BeAValidCpf).WithMessage("Invalid CPF.");
+        _beValidCpf = beValidCpf;
+    }
 
+    bool BeValidCpf(string cpf)
+    {
+        if (string.IsNullOrEmpty(cpf) || cpf.Length != 11)
+            return false;
 
-        bool BeAValidCpf(string cpf)
+        // Algoritmo de validação do CPF
+        int[] factors = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+        int sum = 0;
+
+        for (int i = 0; i < 9; i++)
         {
-            if (string.IsNullOrEmpty(cpf))
-                return false;
-
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
-
-            if (!long.TryParse(cpf, out long numericCpf))
-                return false;
-
-            int[] cpfDigits = cpf.Select(c => int.Parse(c.ToString())).ToArray();
-
-            if (AreAllDigitsEqual(cpfDigits))
-                return false;
-
-            int[] firstVerifierDigits = CalculateVerifierDigits(cpfDigits, 10);
-            int[] secondVerifierDigits = CalculateVerifierDigits(cpfDigits, 11);
-
-            return cpfDigits[9] == firstVerifierDigits[0] && cpfDigits[10] == secondVerifierDigits[0];
+            sum += int.Parse(cpf[i].ToString()) * factors[i];
         }
 
-        bool AreAllDigitsEqual(int[] digits)
+        int remainder = sum % 11;
+        int digit1 = remainder < 2 ? 0 : 11 - remainder;
+
+        if (int.Parse(cpf[9].ToString()) != digit1)
+            return false;
+
+        sum = 0;
+        for (int i = 0; i < 10; i++)
         {
-            int firstDigit = digits[0];
-            foreach (int digit in digits)
-            {
-                if (digit != firstDigit)
-                    return false;
-            }
-            return true;
+            sum += int.Parse(cpf[i].ToString()) * factors[i];
         }
 
-        int[] CalculateVerifierDigits(int[] digits, int multiplier)
-        {
-            int[] verifierDigits = new int[2];
-            int sum = 0;
+        remainder = sum % 11;
+        int digit2 = remainder < 2 ? 0 : 11 - remainder;
 
-            for (int i = 0; i < digits.Length - 2; i++)
-                sum += digits[i] * (multiplier--);
-
-            int firstDigit = (sum % 11) < 2 ? 0 : 11 - (sum % 11);
-
-            sum = 0;
-            multiplier = 11;
-
-            for (int i = 0; i < digits.Length - 1; i++)
-                sum += digits[i] * (multiplier--);
-
-            int secondDigit = (sum % 11) < 2 ? 0 : 11 - (sum % 11);
-
-            verifierDigits[0] = firstDigit;
-            verifierDigits[1] = secondDigit;
-
-            return verifierDigits;
-        }
+        return int.Parse(cpf[10].ToString()) == digit2;
     }
 }

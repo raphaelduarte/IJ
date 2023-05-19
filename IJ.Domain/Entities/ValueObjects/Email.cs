@@ -1,29 +1,25 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
 using IJ.Domain.Interfaces.Usuarios;
+using IJ.Domain.Validation;
 using IJ.Domain.Validation.ValueObjects;
 
 namespace IJ.Domain.Entities.ValueObjects;
 
-public class Email
+public class Email : AbstractValidator<IEmailRepository>
 {
-    private IEmailRepository _email;
-    private Guid _idEmail;
-    public Email(IEmailRepository email, EmailValidation emailValidation)
+    private readonly Guid _idEmail;
+    private readonly string _email;
+    public Email(Validator<IEmailRepository> validator, IEmailRepository email)
     {
-        var validationResult = emailValidation.Validate(email);
-        if (!validationResult.IsValid)
-        {
-            var errorMessages = string.Join(", ", validationResult.Errors);
-            Console.WriteLine($"Validation failed: {errorMessages}");
-        }
-        else
-        {
-            _idEmail = email.IdEmail;
-            _email = email.Email;
+        RuleFor(m => m.Email)
+            .NotEmpty().WithMessage("O Email é obrigatório.")
+            .EmailAddress<IEmailRepository>().WithMessage("endereço de email inválido.");
 
-            Console.WriteLine("Validation passed.");
-        }
+        validator.Validate(email);
+
+        _email = email.Email;
+        _idEmail = email.IdEmail;
     }
     
 }
