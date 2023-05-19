@@ -8,6 +8,7 @@ namespace IJ.Domain.Entities.ValueObjects;
 public class Email
 {
     private IEmailRepository _email;
+    private Guid _idEmail;
     public Email(IEmailRepository email, EmailValidation emailValidation)
     {
         var validationResult = emailValidation.Validate(email);
@@ -18,8 +19,11 @@ public class Email
         }
         else
         {
-            email = _email;
+            _idEmail = email.IdEmail;
+            _email = email.Email;
+
             Console.WriteLine("Validation passed.");
         }
     }
+    
 }
