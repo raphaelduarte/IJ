@@ -5,27 +5,54 @@ using IJ.Domain.Validation.ValueObjects;
 
 namespace IJ.Domain.Entities.ValueObjects;
 
-public class Cpf : AbstractValidator<ICpfRepository>
+public class Cpf : AbstractValidator<ICpfRepository>, IRepository<ICpfRepository>
 {
     private Guid _idCpf { get; }
-    public long _numeroCpf { get; set; }
-    private ICpfRepository _validator {  get; set; }
-
-    public Cpf(Validator<ICpfRepository> validator, ICpfRepository cpf, ICpfRepository validator1)
+    private long _numeroCpf { get; set; }
+    private ICpfRepository _cpfValidator {  get; set; }
+    
+    public Cpf(Guid? idCpf, long numeroCpf, ICpfRepository? cpf, ICpfRepository? cpfValidator, Validator<ICpfRepository>? validator)
     {
-        _validator = validator1;
+        _cpfValidator = cpfValidator;
 
 
         RuleFor(cpf => cpf.NumeroCpf.ToString())
             .NotEmpty().WithMessage("O número do CPF é obrigatório.")
             .Length(11).WithMessage("O número do CPF deve conter 11 dígitos.")
-            .Must(_validator.BeAValidCpf);
+            .Must(_cpfValidator.BeAValidCpf);
             
 
 
         validator.Validate(cpf);
 
-        _idCpf = cpf.IdCpf;
-        _numeroCpf = cpf.NumeroCpf;
+        idCpf = new Guid();
+        _idCpf = (Guid)idCpf;
+        
+        _numeroCpf = numeroCpf;
+    }
+
+    public Task<IEnumerable<ICpfRepository>> GetAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICpfRepository> GetAsyncById(ICpfRepository id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICpfRepository> CreateAsync(ICpfRepository entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICpfRepository> UpdateAsync(ICpfRepository entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICpfRepository> RemoveAsync(ICpfRepository entity)
+    {
+        throw new NotImplementedException();
     }
 }

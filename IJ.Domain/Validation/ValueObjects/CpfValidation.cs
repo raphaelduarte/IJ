@@ -1,9 +1,4 @@
-﻿using FluentValidation;
-using Flunt.Br;
-using Flunt.Br.Extensions;
-using Flunt.Notifications;
-using IJ.Domain.Entities.ValueObjects;
-using IJ.Domain.Interfaces.Usuarios;
+﻿using IJ.Domain.Interfaces.Usuarios;
 
 namespace IJ.Domain.Validation.ValueObjects;
 

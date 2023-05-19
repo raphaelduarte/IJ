@@ -1,13 +1,4 @@
-﻿using IJ.Domain.Entities.ValueObjects;
-using IJ.Domain.Validation.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
-using System.Security.Cryptography.X509Certificates;
-
+﻿using FluentValidation;
 namespace IJ.Domain.Validation
 {
     public class Validator<T> : AbstractValidator<T>
