@@ -5,11 +5,13 @@ using IJ.Domain.Validation.ValueObjects;
 
 namespace IJ.Domain.Entities.ValueObjects;
 
-public class Cpf : AbstractValidator<ICpfRepository>
+public class Cpf : AbstractValidator<ICpfRepository>, ICpfRepository
 {
-    private Guid _idCpf { get; }
-    private long _numeroCpf { get; set; }
     private ICpfRepository _cpfValidator {  get; set; }
+
+    Guid ICpfRepository.IdCpf { get; }
+
+    long ICpfRepository.NumeroCpf { get; set; }
 
     public Cpf(Guid? idCpf, long numeroCpf, ICpfRepository? cpf, ICpfRepository? cpfValidator,
         Validator<ICpfRepository>? validator)
@@ -27,8 +29,18 @@ public class Cpf : AbstractValidator<ICpfRepository>
         validator.Validate(cpf);
 
         idCpf = new Guid();
-        _idCpf = (Guid)idCpf;
+        IdCpf = idCpf;
 
-        _numeroCpf = numeroCpf;
+        NumeroCpf = numeroCpf;
+    }
+
+    public bool BeAValidCpf(string value)
+    {
+        throw new NotImplementedException();
+    }
+
+    bool ICpfRepository.BeAValidCpf(string value)
+    {
+        throw new NotImplementedException();
     }
 }
