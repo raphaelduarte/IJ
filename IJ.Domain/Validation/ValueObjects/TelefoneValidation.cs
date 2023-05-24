@@ -13,7 +13,7 @@ public class TelefoneValidation : AbstractValidator<ITelefoneRepository>
             .Must(BeValidPhone).WithMessage("Invalid phone number.");
     }
 
-    private bool BeValidPhone(long telefone)
+    public bool BeValidPhone(long telefone)
     {
         string telefoneString = telefone.ToString();
         

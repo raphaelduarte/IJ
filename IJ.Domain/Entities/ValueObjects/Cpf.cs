@@ -2,45 +2,39 @@
 using IJ.Domain.Interfaces.Usuarios;
 using IJ.Domain.Validation;
 using IJ.Domain.Validation.ValueObjects;
+using Microsoft.AspNetCore.Http.HttpResults;
+using System.Threading.Channels;
 
 namespace IJ.Domain.Entities.ValueObjects;
 
-public class Cpf : AbstractValidator<ICpfRepository>, ICpfRepository
+public class Cpf : AbstractValidator<ICpfRepository>
 {
-    private ICpfRepository _cpfValidator {  get; set; }
+    private ICpfRepository _cpf { get; set; }
+    private CpfValidation _cpfValidation {  get; set; }
+    private Validator<ICpfRepository> _validator { get; set; }
 
-    Guid ICpfRepository.IdCpf { get; }
 
-    long ICpfRepository.NumeroCpf { get; set; }
+    private Guid _idCpf { get; }
 
-    public Cpf(Guid? idCpf, long numeroCpf, ICpfRepository? cpf, ICpfRepository? cpfValidator,
-        Validator<ICpfRepository>? validator)
+    private long _numeroCpf { get; set; }
+
+    public Cpf(ICpfRepository cpf, CpfValidation cpfValidation, Validator<ICpfRepository> validator)
     {
-        _cpfValidator = cpfValidator;
+        _cpf = cpf;
+        _cpfValidation = cpfValidation;
+        _validator = validator;
 
 
-        RuleFor(cpf => cpf.NumeroCpf.ToString())
+        RuleFor(_cpf => _cpf.NumeroCpf.ToString())
             .NotEmpty().WithMessage("O número do CPF é obrigatório.")
             .Length(11).WithMessage("O número do CPF deve conter 11 dígitos.")
-            .Must(_cpfValidator.BeAValidCpf);
+            .Must(_cpfValidation.BeValidCpf).WithMessage("Esse número de CPF é inválido");
 
+        _validator.Validate(_cpf);
 
+        _idCpf = _cpf.IdCpf;
+        _numeroCpf = _cpf.NumeroCpf;
 
-        validator.Validate(cpf);
-
-        idCpf = new Guid();
-        IdCpf = idCpf;
-
-        NumeroCpf = numeroCpf;
-    }
-
-    public bool BeAValidCpf(string value)
-    {
-        throw new NotImplementedException();
-    }
-
-    bool ICpfRepository.BeAValidCpf(string value)
-    {
-        throw new NotImplementedException();
+        
     }
 }

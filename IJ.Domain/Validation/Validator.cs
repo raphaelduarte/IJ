@@ -3,8 +3,6 @@ namespace IJ.Domain.Validation
 {
     public class Validator<T> : AbstractValidator<T>
     {
-        public T Valor { get; set; }
-
         public Validator(T valor)
         {
             var validation = Activator.CreateInstance(typeof(T));

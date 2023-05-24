@@ -4,14 +4,15 @@ namespace IJ.Domain.Validation.ValueObjects;
 
 public class CpfValidation
 {
-    ICpfRepository _beValidCpf;
+    private CpfValidation _cpfValidation;
 
-    public CpfValidation(ICpfRepository beValidCpf)
+    public CpfValidation(CpfValidation cpfValidation)
     {
-        _beValidCpf = beValidCpf;
+        _cpfValidation = cpfValidation;
     }
+    
 
-    bool BeValidCpf(string cpf)
+    public bool BeValidCpf(string cpf)
     {
         if (string.IsNullOrEmpty(cpf) || cpf.Length != 11)
             return false;

@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
-using FluentValidation.Validators;
 using IJ.Domain.Interfaces.Usuarios;
 using IJ.Domain.Validation;
-using IJ.Domain.Validation.ValueObjects;
 
 namespace IJ.Domain.Entities.ValueObjects;
 
@@ -14,6 +12,7 @@ public class Email : AbstractValidator<IEmailRepository>
     {
         RuleFor(m => m.Email)
             .NotEmpty().WithMessage("O Email é obrigatório.")
+            .NotNull().WithMessage("Este campo não pode ter valor nulo")
             .EmailAddress<IEmailRepository>().WithMessage("endereço de email inválido.");
 
         validator.Validate(email);
