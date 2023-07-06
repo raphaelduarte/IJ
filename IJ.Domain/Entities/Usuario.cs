@@ -1,17 +1,20 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using Flunt.Notifications;
-using IJ.Domain.Interfaces.Usuarios;
-using IJ.Domain.Validation;
-
-namespace IJ.Domain.Entities;
-
-public sealed class Usuario : IEntityRepository
+﻿namespace IJ.Domain.Entities;
+public class Usuario : Entity
 {
-    public Guid Id { get; set; }
-    private IUsuarioRepository UsuarioRepository;
-
-    public Usuario(IUsuarioRepository usuarioRepository)
+    public Usuario(Guid nomeCompletoId ,Guid cpfId, Guid telefoneId, Guid enderecoCompletoId, Guid enderecoEmailId, Enum eTipoUsuario)
     {
-        UsuarioRepository = usuarioRepository;
+        NomeCompletoId = nomeCompletoId;
+        CpfId = cpfId;
+        TelefoneId = telefoneId;
+        EnderecoCompletoId = enderecoCompletoId;
+        EnderecoEmailId = enderecoEmailId;
+        ETipoUsuario = eTipoUsuario;
     }
+    private Guid NomeCompletoId { get; set; }
+    private Guid CpfId { get; set; }
+    private Guid TelefoneId { get; set; }
+    private Guid EnderecoCompletoId { get; set; }
+    private Guid EnderecoEmailId { get; set; }
+    private Enum ETipoUsuario { get; }
+    private List<ValueObjects.Endereco.Endereco> EnderecoCompletoList { get; set; }
 }
