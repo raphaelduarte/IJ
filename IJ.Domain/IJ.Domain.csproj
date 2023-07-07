@@ -21,7 +21,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Commands\NomeCompleto\" />
+      <Folder Include="Commands\Contracts\" />
+      <Folder Include="Handlers\Contracts\" />
+      <Folder Include="Repositories\" />
     </ItemGroup>
 
 </Project>
